@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package webpush.protobuf;
+
+// https://www.w3.org/TR/2017/WD-push-api-20171215/
+// `PushSubscription` represents a push subscription described in 4.3.
+message PushSubscription {
+  string endpoint = 1;
+  bytes p256dh = 2;
+  bytes auth = 3;
+}
