@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package webpush.protobuf;
+
+import "google/protobuf/empty.proto";
+import "webpush/protobuf/push_subscription.proto";
+
+message Message {
+  webpush.protobuf.PushSubscription subscription = 1;
+  string plaintext = 2;
+  // Represents a `TTL` header described in rfc8030#section-5.2.
+  uint32 ttl = 3;
+}
+
+// `PushService` implements the following specifications.
+//   - https://tools.ietf.org/html/rfc8030
+//   - https://tools.ietf.org/html/rfc8291
+//   - https://tools.ietf.org/html/rfc8292
+service PushService {
+  rpc Send(Message) returns (google.protobuf.Empty);
+}
