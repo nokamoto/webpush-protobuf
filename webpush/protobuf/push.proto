@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package webpush.protobuf;
 
+option java_package = "com.github.nokamoto.webpush.protobuf";
+
 import "google/protobuf/empty.proto";
 import "webpush/protobuf/push_subscription.proto";
 
